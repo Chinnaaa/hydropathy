@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Correlation Coefficient</title>
+
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    <link href="{{ url_for('static', filename='css/mdb.min.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div align="middle">
+        <br>
+        <h1>
+            Correlation Coefficient
+        </h1>
+         <form class="form-inline" method="post" action="/generate2/">
+                <h3><span class="label label-default">Amino Acid Sequence</span></h3>
+                <input type="text" class="form-control" placeholder="Sequence" name="sequence" value="{{request.form.sequence}}">
+                <br>
+                <br>
+                <h3><span class="label label-default">Window Size</span></h3>
+                <input type="text" class="form-control" placeholder="Window Size" name="Wsize" value="{{request.form.Wsize}}">
+                <br><br>
+                <h3><span class="label label-default">Menu</span></h3>
+                <h5>
+                    1:-Abraham     2:-Black     3:-Eisenburg    4:-Cowmanph75<br>
+                    5:-Cowmanph34  6:-Bull      7:-Hopp         8:-Manvalan  <br>
+                    9:-guy 10:-kyte-dolittle 11:-miyazava 12:- mobility<br>
+                    13:-roseman 14:- wilson  15:- wolfenden 16:- fauchere<br>
+                    17:- janin 18:-rao 19:- tanford 20:- parker<br>
+                    21:- welling 22:-faulp 23:-abodr 24:-Rose<br>
+                    25:- ponnu 26:-mijer 27:- white 28:-eisen<br>
+                </h5>
+                <input type="text" class="form-control" placeholder="Menu" name="menu" value="{{request.form.menu}}">
+
+                <br><br>
+                <input class="btn btn-danger" type="submit" value="Get Plot">
+         </form>
+    </div>
+</body>
+</html>

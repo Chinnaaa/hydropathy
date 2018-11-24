@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plot</title>
+</head>
+<body>
+        <div align="middle">
+            <h1>
+              Bandopadhyay-Mehler Hydrophobicity Plot
+            </h1>
+            <form class="form-inline" method="post" action="/generate/">
+                <h3><span class="label label-default">Amino Acid Sequence</span></h3>
+                <input type="text" class="form-control" placeholder="Sequence" name="sequence" value="{{request.form.sequence}}">
+                <br>
+                <br>
+                <h3><span class="label label-default">Window Size</span></h3>
+                <input type="text" class="form-control" placeholder="Window Size" name="Wsize" value="{{request.form.Wsize}}">
+                <br><br>
+                <input class="btn btn-danger" type="submit" value="Get Plot">
+            </form>
+            <br>
+            <br>
+            <div>
+                <h2>Hydropathy Plot</h2>
+                <img src='{{hydropathy_plot}}'/>
+            </div>
+        </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+</head>
+<body>
+        <div align="middle">
+            <h1>
+                Bandopadhyay-Mehler Hydropathy Plot
+            </h1>   
+            <br/><br/><br/>
+            <div>
+                <img src='{{hydropathy_plot}}'/>
+            </div> 
+            <!-- <a href="/static/pdfs/Hydropathy Plot.pdf" download> 
+                <input class="btn btn-primary" name="bnt-se" id="bnt-se" type="submit" placeholder="Download PDF" value="Download PDF">
+            </a>
+            <a href="/pdfs/Hydropathy Plot.pdf" download> 
+                <input class="btn btn-primary" name="bnt-se" id="bnt-se" type="submit" placeholder="Download PDF" value="Download PDF">
+            </a> -->
+            <form action='/pdf/'>
+                <input class="btn btn-primary" type="submit" placeholder="Download PDF" value="Download PDF">
+            </form>
+            <form action='/excel/'>
+                <input class="btn btn-primary" type="submit" placeholder="Download Excel" value="Download Excel">
+            </form>
+        </div>
+</body>
+</html>
