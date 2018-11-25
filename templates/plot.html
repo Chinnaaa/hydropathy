@@ -5,12 +5,28 @@
     <meta charset="UTF-8">
     <title>Plot</title>
 </head>
-<body>
+<body style="background-color:powderblue;">
         <div align="middle">
             <h1>
-              Bandopadhyay-Mehler Hydrophobicity Plot
+              Bandyopadhyay-Mehler Hydropathy Plot
             </h1>
             <form class="form-inline" method="post" action="/generate/">
+				
+				<div style="text-align: left;"><big><big><big><small>To generate hydropathy plot, please follow the on-screen instructions.</small></big></big></big><br>
+						</div>
+
+					<div style="text-align: left;">
+					<ul>
+						  <li>Type in the amino acid sequence of the protein in the box labelled "Amino acid sequence"</li>
+						  <li>For eg: If you want to generate plot for the protein with PDB ID: 2CZS, type <br>
+								MVSGEVRTKKVPLDTNHKRFYDAFAQGAGKLDLDRQCVECHHEKPGGIPFPKNHPVKPADGPMRCLFCHKFKLEHHHHHH <br>only without any punctuation marks.</li>
+						  <li>Type in window size without any punctuation marks in the box labelled window size</li>
+						  <li>Once you finish the above steps, click on "Get plot" button.<br>
+						  </li>
+						  
+					</ul>
+				</div>
+				
                 <h3><span class="label label-default">Amino Acid Sequence</span></h3>
                 <input type="text" class="form-control" placeholder="Sequence" name="sequence" value="{{request.form.sequence}}">
                 <br>
@@ -19,13 +35,22 @@
                 <input type="text" class="form-control" placeholder="Window Size" name="Wsize" value="{{request.form.Wsize}}">
                 <br><br>
                 <input class="btn btn-danger" type="submit" value="Get Plot">
+				<hr>
+				
+				
             </form>
             <br>
-            <br>
-            <div>
-                <h2>Hydropathy Plot</h2>
-                <img src='{{hydropathy_plot}}'/>
-            </div>
+            
+			<div style="text-align: left;">
+			<div style="text-align: left;">&nbsp;Download the reference paper, <a href="/../static/pdfs/Proteins2008-DB-ELM.pdf" target="_blank">Click here!</a>
+			<br>Citation: Bandyopadhyay, D. and Mehler, E.L. (2008) Quantitative expression of protein heterogeneity:
+			Response of amino acid side chains to their local environments. Proteins: 72, 646-659
+			<br> <br>
+			Contribution towards python scripts: Gande Vishal         <br> <br>       Web design: Gande Vishal, Nikhil Joshi and Afroz Ahamad
+			<br> <br>
+			For any queries email: banerjee.debi@hyderabad.bits-pilani.ac.in 
+			</div>
+           
         </div>
 </body>
 </html>

@@ -4,12 +4,9 @@
     <meta charset="UTF-8">
     <title>Results</title>
 </head>
-<body>
-        <div align="middle">
-            <h1>
-                Bandopadhyay-Mehler Hydropathy Plot
-            </h1>   
-            <br/><br/><br/>
+<body style="background-color:powderblue;">
+        <div align="middle">   
+            <br/><br/>
             <div>
                 <img src='{{hydropathy_plot}}'/>
             </div> 
@@ -19,12 +16,17 @@
             <a href="/pdfs/Hydropathy Plot.pdf" download> 
                 <input class="btn btn-primary" name="bnt-se" id="bnt-se" type="submit" placeholder="Download PDF" value="Download PDF">
             </a> -->
+			<br>
             <form action='/pdf/'>
                 <input class="btn btn-primary" type="submit" placeholder="Download PDF" value="Download PDF">
             </form>
+			<br>
             <form action='/excel/'>
                 <input class="btn btn-primary" type="submit" placeholder="Download Excel" value="Download Excel">
             </form>
+			<br>
+			click on "Download PDF" button to get hydropathy image in pdf format <br> <br>
+			click on "Download excel" button to get your amino acid sequence v/s Bandyopadhyay-Mehler hydrophobicity score of your sequence.
         </div>
 </body>
 </html>
