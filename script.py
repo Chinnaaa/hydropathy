@@ -13,11 +13,22 @@ class hydrophobicity:
         user_input = user_input.upper()
         length = len(user_input)
         arrayy = []
+        normalize=[]
         scores = {'G':0.00,'C':1.15,'I':0.97,'L':0.87,'F':0.85,'V':0.83,'W':0.67,'Y':0.60,'M':0.54,'A':0.33,'P':0.32,'H':0.25,'T':0.21,'S':0.05,'R':-0.01,'Q':-0.05,'N':-0.07,'D':-0.22,'E':-0.24,'K':-0.40}
         name = {'A':"Alanine",'R':"Arginine",'N':"Aspargine",'D':"Asparctic acid",'C':"Cysteine",'E':"Glutamic acid",'Q':"Glutamine",'G':"Glycine",'H':"Histidine",'I':"Isoleucine",'L':"Leucine",'K':"Lysine",'M':"Methionine",'F':"Phenylalanine",'P':"Proline",'S':"Serine",'T':"Threonine",'W':"Tryptophan",'Y':"Tyrosine",'V':"Valine"}
 
         for x in user_input:
-            arrayy.append(scores[x])
+            normalize.append(scores[x])
+
+        for index in range(0,len(normalize)-window+1):
+            summm=0
+            for i in range(window):
+                summm+=normalize[index+i]
+
+            arrayy.append(summm/window)
+
+
+
 
         yaxis=[]
         count = 0
@@ -34,8 +45,8 @@ class hydrophobicity:
         print ("Window Size: %d" %(window))
 
         y_axis= np.array(yaxis)
-        length = length - length%window
-        t = np.arange(0, length, window)
+        length = len(arrayy) - len(arrayy)%window
+        t = np.arange(int(window/2), length, window)
         x_axis=np.array(t)
         print ("Number of points plotted: %d" %(len(x_axis)))
         fig, ax = plt.subplots()
@@ -60,8 +71,8 @@ class hydrophobicity:
 
         for i in range(len(arrayy)):
             sheet1.write(i+1,2,arrayy[i])
-            sheet1.write(i+1,0,user_input[i])
-            sheet1.write(i+1,1,name[user_input[i]])
+            sheet1.write(i+1,0,user_input[int(i+(window/2)-0.5)])
+            sheet1.write(i+1,1,name[user_input[int(i+(window/2)-0.5)]])
 
         wb.save('static/pdfs/Hydrophobicity_scores.xls')
 
