@@ -11,6 +11,7 @@ class hydrophobicity:
         # windoww = input("window size: ")
         window = int(windoww)
         user_input = user_input.upper()
+        user_input = user_input.strip()
         length = len(user_input)
         arrayy = []
         normalize=[]
