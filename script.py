@@ -15,7 +15,7 @@ class hydrophobicity:
         arrayy = []
         normalize=[]
         scores = {'G':0.00,'C':1.15,'I':0.97,'L':0.87,'F':0.85,'V':0.83,'W':0.67,'Y':0.60,'M':0.54,'A':0.33,'P':0.32,'H':0.25,'T':0.21,'S':0.05,'R':-0.01,'Q':-0.05,'N':-0.07,'D':-0.22,'E':-0.24,'K':-0.40}
-        name = {'A':"Alanine",'R':"Arginine",'N':"Aspargine",'D':"Asparctic acid",'C':"Cysteine",'E':"Glutamic acid",'Q':"Glutamine",'G':"Glycine",'H':"Histidine",'I':"Isoleucine",'L':"Leucine",'K':"Lysine",'M':"Methionine",'F':"Phenylalanine",'P':"Proline",'S':"Serine",'T':"Threonine",'W':"Tryptophan",'Y':"Tyrosine",'V':"Valine"}
+        name = {'A':"Ala",'R':"Arg",'N':"Asn",'D':"Asp",'C':"Cys",'E':"Glu",'Q':"Gln",'G':"Gly",'H':"His",'I':"Ile",'L':"Leu",'K':"Lys",'M':"Met",'F':"Phe",'P':"Pro",'S':"Ser",'T':"Thr",'W':"Trp",'Y':"Tyr",'V':"Val"}
 
         for x in user_input:
             normalize.append(scores[x])
@@ -66,12 +66,13 @@ class hydrophobicity:
         
         wb = Workbook() 
         sheet1 = wb.add_sheet('Sheet 1') 
-        sheet1.write(0,0,"Amino acid")
+        sheet1.write(0,0,"Position")
+        sheet1.write(0,1,"Amino acid")
         sheet1.write(0,2,"Hydrophobicity Score")
 
         for i in range(len(arrayy)):
             sheet1.write(i+1,2,arrayy[i])
-            sheet1.write(i+1,0,user_input[int(i+(window/2)-0.5)])
+            sheet1.write(i+1,0,i+(window/2)-0.5+1)
             sheet1.write(i+1,1,name[user_input[int(i+(window/2)-0.5)]])
 
         wb.save('static/pdfs/Hydrophobicity_scores.xls')
